@@ -1,0 +1,11 @@
+.venv
+__pycache__
+inputs
+outputs
+temp_jobs
+*.pyc
+.git
+.gitignore
+.python-version
+uv.lock
+pyproject.toml

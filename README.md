@@ -82,7 +82,34 @@ http://127.0.0.1:5000
 
 ---
 
+
+
+## Running with Docker
+
+You can easily build and run this application inside a Docker container. Docker simplifies setup as it automatically packages all necessary dependencies, including `poppler-utils`.
+
+### 1. Build the Docker Image
+```shell
+docker build -t pdf-2-long-image .
+```
+
+### 2. Run the Container
+```shell
+docker run -p 5000:5000 pdf-2-long-image
+```
+
+### 3. Open your browser and navigate to
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+
+
 ## Running the Command-Line Tool
+
 
 Place one or more PDF files in the `./inputs` folder, then run:
 ```shell
