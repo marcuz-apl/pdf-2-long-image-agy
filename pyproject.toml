@@ -1,0 +1,15 @@
+[project]
+name = "pdf-2-long-image"
+version = "0.1.0"
+description = "A tool to convert PDFs to long images."
+authors = [
+    {name = "marcuz-apl", email = "marcus.zou@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask",
+    "pdf2image",
+    "pillow",
+    "click"
+]

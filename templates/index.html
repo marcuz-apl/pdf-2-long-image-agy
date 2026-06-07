@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF-2-Long-Image | Batch Stitcher</title>
+    <!-- Google Fonts - Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Premium Neon Blobs Background -->
+    <div class="background-effects">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">📄</span>
+                <h1>PDF<span class="accent">2</span>LongImage</h1>
+            </div>
+            <p class="subtitle">Stitch multiple PDF pages into single long TIFF, PNG, or JPEG files</p>
+        </header>
+
+        <main class="glass-card">
+            <!-- Upload & Settings Stage -->
+            <div id="conversion-stage">
+                <form id="upload-form">
+                    <!-- Drag and Drop Zone -->
+                    <div class="drop-zone" id="drop-zone">
+                        <div class="drop-zone-content">
+                            <span class="upload-icon">📥</span>
+                            <h3>Drag & drop PDF files here</h3>
+                            <p>or <span class="browse-btn">browse your files</span></p>
+                            <span class="limit-info">Maximum total upload limit: 50 MB</span>
+                        </div>
+                        <input type="file" id="file-input" name="files" multiple accept=".pdf" style="display: none;">
+                    </div>
+
+                    <!-- Settings Section -->
+                    <div class="settings-grid">
+                        <div class="control-group">
+                            <label for="format">Output Format</label>
+                            <div class="select-wrapper">
+                                <select id="format" name="format">
+                                    <option value="tiff" selected>TIFF (.tiff)</option>
+                                    <option value="png">PNG (.png)</option>
+                                    <option value="jpeg">JPEG (.jpg)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="dpi">Resolution (DPI)</label>
+                            <div class="select-wrapper">
+                                <select id="dpi" name="dpi">
+                                    <option value="100">100 DPI (Draft / Faster)</option>
+                                    <option value="200" selected>200 DPI (Standard)</option>
+                                    <option value="300">300 DPI (High Resolution)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selected Files Queue -->
+                    <div class="file-list-container" id="file-list-container" style="display: none;">
+                        <div class="file-list-header">
+                            <h4>Upload Queue (<span id="file-count">0</span>)</h4>
+                            <span id="total-size-badge" class="badge">0 MB / 50 MB</span>
+                        </div>
+                        <div class="file-list" id="file-list"></div>
+                        <div class="error-banner" id="size-error-banner" style="display: none;">
+                            ⚠️ Total file size exceeds the 50MB limit. Please remove some files.
+                        </div>
+                    </div>
+
+                    <!-- Process Trigger -->
+                    <button type="submit" class="submit-btn" id="submit-btn" disabled>
+                        <span class="btn-text">Convert to Long Images</span>
+                        <span class="btn-spinner" style="display: none;"></span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Processing Stage -->
+            <div class="loading-panel" id="loading-panel" style="display: none;">
+                <div class="loader-container">
+                    <div class="loader"></div>
+                </div>
+                <h3>Stitching PDF Pages...</h3>
+                <p>Generating the long image. This might take a moment depending on the page count.</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Completed Stage -->
+            <div class="results-panel" id="results-panel" style="display: none;">
+                <div class="results-header">
+                    <h2>Conversion Completed!</h2>
+                    <a href="#" id="download-all-btn" class="download-all-btn">
+                        <span>📦 Download All (.ZIP)</span>
+                    </a>
+                </div>
+                <div class="results-list" id="results-list"></div>
+                <button type="button" class="reset-btn" id="reset-btn">Convert More Files</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 PDF-2-Long-Image Batch Stitcher, maintained by alfazen.org Platform</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
